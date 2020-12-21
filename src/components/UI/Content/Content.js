@@ -5,7 +5,7 @@ import './Content.scss'
 const Content = ({ children }) => {
   return (
     <div className="Content">
-      {children} <h1>LOLOLOL</h1>
+      {children} <h1>CZESC JESTEM DAWID czesc jestem dawid</h1>
     </div>
   )
 }
