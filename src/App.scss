@@ -4,8 +4,9 @@
   height: 100%;
   position: fixed;
   font-family: 'triballakaregular';
+  background: rgb(11,7,8);
+  background: linear-gradient(144deg, rgba(11,7,8,0.9822303921568627) 7%, rgba(60,59,59,0.8981967787114846) 19%, rgba(59,54,55,0.5480567226890756) 31%, rgba(4,7,13,0.23713235294117652) 44%, rgba(4,7,13,0.19511554621848737) 49%);
 }
-
 @font-face {
   font-family: 'triballakaregular';
   src: url('./assets/fonts/webfontkit-20201221-093119/triballa.woff2') format('woff2'),
