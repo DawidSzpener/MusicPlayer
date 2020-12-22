@@ -1,0 +1,78 @@
+.PulsingButton { 
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 60px);
+  width: 120px;
+  height: auto;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(133, 108, 78);
+  color: rgb(133, 108, 78);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 3px 9px;
+  transition: all 0.4s ease;
+  border-radius: 4px;
+
+  &:focus {
+    outline: none;
+    background-color: rgb(250, 180, 94);
+    box-shadow: 0 0 0 4px  rgb(243, 211, 173);
+  }
+  &:hover {
+    background-color: rgb(206, 154, 90);
+  }
+  &--animating {
+    animation: pulsing 1s infinite;
+  }
+  &--round {
+    border-radius: 10px;
+  }
+  &--green {
+    border-color: rgb(2, 83, 2);
+    color: rgb(2, 83, 2);
+    &:focus {
+      background-color: rgb(6, 247, 6);
+      box-shadow: 0 0 0 4px  rgb(147, 243, 147);
+    }
+    &:hover {
+      background-color: rgb(4, 197, 4);
+    }
+  }
+  &--red {
+    border-color: rgb(138, 2, 2);
+    color:  rgb(138, 2, 2);
+    &:focus {
+      background-color: rgb(248, 7, 7);
+      color:  rgb(138, 2, 2);
+      box-shadow: 0 0 0 4px  rgb(248, 151, 151);
+    }
+    &:hover {
+      background-color: rgb(247, 83, 83);
+    }
+  }
+  &--black {
+    border-color: black;
+    color: black;
+    font-size: 1rem;
+    font-family: 'triballakaregular';  
+    letter-spacing: 2px;
+    padding-top: 8px;
+
+    &:focus {
+      background-color: white;
+      border-color: black;
+      box-shadow: 0 0 0 4px  rgb(243, 241, 241);
+    }
+    &:hover {
+      background-color: black;
+      color:  rgb(250, 249, 249);
+    }
+  }
+}
+
+@keyframes pulsing {
+  0% {border-width: 1.5px}
+  50% {border-width: 4px; margin-left: -2.5px; margin-top: -2.5px}
+  100% {border-width: 1.5px}
+}
