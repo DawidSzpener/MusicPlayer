@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 
 import './Sidebar.scss'
 import logo from '../../../assets/images/logo2.png'
+import plus from '../../../assets/images/plus.png'
 
 const Sidebar = () => {
   const [state, setState] = useState({
     currentPlaylist: 'home',
     playlists: {
       home: null,
+      hiphop: null,
+      rock: null,
+      drums: null,
       favourites: null
     }
   })
@@ -30,7 +34,8 @@ const Sidebar = () => {
           </li>)
       }
       <div className="Sidebar__newplaylist">
-        <span style={{userSelect: 'none'}}>New playlist</span>
+        <img className="Sidebar__newplaylist__img" src={plus} alt="plus"/>
+    <span className="Sidebar__newplaylist__title">New playlist</span>
       </div>
     </div>
   )
