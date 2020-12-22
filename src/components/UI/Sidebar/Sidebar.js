@@ -4,9 +4,12 @@ import './Sidebar.scss'
 import logo from '../../../assets/images/logo2.png'
 import plus from '../../../assets/images/plus.png'
 
+import Modal from '../Modal/Modal'
+
 const Sidebar = () => {
   const [state, setState] = useState({
     currentPlaylist: 'home',
+    showModal: false,
     playlists: {
       home: null,
       hiphop: null,
@@ -34,8 +37,11 @@ const Sidebar = () => {
           </li>)
       }
       <div className="Sidebar__newplaylist">
-        <img className="Sidebar__newplaylist__img" src={plus} alt="plus"/>
-    <span className="Sidebar__newplaylist__title">New playlist</span>
+        <img className="Sidebar__newplaylist__img" src={plus} alt="plus" onClick={() => setState({...state, showModal: true})}/>
+        <span className="Sidebar__newplaylist__title">New playlist</span>
+        <Modal show={state.showModal} close={() => setState({...state, showModal: false})}>
+          11234312
+        </Modal>
       </div>
     </div>
   )
