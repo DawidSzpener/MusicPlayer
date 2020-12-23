@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 
 import './Sidebar.scss'
 import logo from '../../../assets/images/logo2.png'
@@ -7,6 +7,7 @@ import plus from '../../../assets/images/plus.png'
 import Modal from '../Modal/Modal'
 import Button from '../Button/Button'
 import Toast from '../Toast/Toast'
+import {StoreContext} from '../../../containers/MusicPlayer/MusicPlayer'
 
 const Sidebar = () => {
   const [state, setState] = useState({
@@ -20,6 +21,8 @@ const Sidebar = () => {
     },
     showToast: false
   })
+
+  // const { state, dispatch } = useContext(StoreContext)
 
   const playlists = Object.keys(state.playlists)
   const playlistRef = useRef(null)
