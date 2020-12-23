@@ -19,7 +19,14 @@ const initialState = {
 }
 
 const reducer = (state, action) => {
-  return state
+  switch(action.type) {
+    case('ADD_PLAYLIST'):
+      return {...state, playlists: {...state.playlists, [action.playlist]: new Set()}}
+    case('SET_PLAYLIST'):
+      return {...state, currentPlaylist: action.playlist}
+    default:
+      return null
+  }
 }
 
 const MusicPlayer = () => {
