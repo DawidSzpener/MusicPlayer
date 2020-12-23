@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import './Content.scss'
+import {StoreContext} from '../../../containers/MusicPlayer/MusicPlayer'
 
-const Content = ({ children }) => {
+const Content = () => {
+  const { state, dispatch } = useContext(StoreContext)
+
   return (
     <div className="Content">
-      {children} <h1>CZESC JESTEM DAWID czesc jestem dawid</h1>
+      {state.currentPlaylist}
     </div>
   )
 }

@@ -27,14 +27,18 @@ const Sidebar = () => {
     dispatch({ type: 'ADD_PLAYLIST', playlist: list })
 
     setState({
-      ...state, 
+      ...sidebarState, 
       showModal: false,
       showToast: true
     })
   }
 
   const handleModal = () => {
-    setState({...sidebarState, showModal: true})
+    setState({...sidebarState, showModal: !sidebarState.showModal})
+  }
+
+  const handleToast = () => {
+    setState({...sidebarState, showToast: !sidebarState.showToast})
   }
 
   return (
@@ -57,7 +61,7 @@ const Sidebar = () => {
       <div className="Sidebar__newplaylist">
         <img className="Sidebar__newplaylist__img" src={plus} alt="plus" onClick={handleModal}/>
         <span className="Sidebar__newplaylist__title">New playlist</span>
-        <Modal show={sidebarState.showModal} close={() => setState({...sidebarState, showModal: false})}>
+        <Modal show={sidebarState.showModal} close={handleModal}>
           <form onSubmit={addPlaylist} className="Sidebar__newplaylist__modal">
             <div className="Sidebar__newplaylist__modal__title">NEW PLAYLIST</div>
             <div className="Sidebar__newplaylist__modal__content">
@@ -71,7 +75,7 @@ const Sidebar = () => {
             <Button type="submit" text="CREATE" styles="black"></Button>
           </form>
         </Modal>
-        <Toast close={() => setState({...sidebarState, showToast: false})} show={sidebarState.showToast} text="Succesfully added"/>
+        <Toast close={handleToast} show={sidebarState.showToast} text="Succesfully added"/>
       </div>
     </div>
   )

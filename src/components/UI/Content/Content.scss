@@ -5,4 +5,10 @@
   top: 100px;
   width: calc(100% - 200px);
   height: calc(100% - 225px);
+
+  user-select: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2rem;
+  letter-spacing: 8px;
 }
