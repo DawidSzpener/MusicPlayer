@@ -6,6 +6,7 @@ import plus from '../../../assets/images/plus.png'
 
 import Modal from '../Modal/Modal'
 import Button from '../Button/Button'
+import Toast from '../Toast/Toast'
 
 const Sidebar = () => {
   const [state, setState] = useState({
@@ -16,7 +17,8 @@ const Sidebar = () => {
       hiphop: new Set(),
       rock: new Set(),
       favourites: new Set()
-    }
+    },
+    showToast: false
   })
 
   const playlists = Object.keys(state.playlists)
@@ -29,7 +31,8 @@ const Sidebar = () => {
     setState({
       ...state, 
       showModal: false,
-      playlists: {...state.playlists, [list]: new Set()}
+      playlists: {...state.playlists, [list]: new Set()},
+      showToast: true
     })
   }
 
@@ -67,6 +70,7 @@ const Sidebar = () => {
             <Button type="submit" text="CREATE" styles="black"></Button>
           </form>
         </Modal>
+        <Toast close={() => setState({...state, showToast: false})} show={state.showToast} text="Succesfully added"/>
       </div>
     </div>
   )

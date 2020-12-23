@@ -1,0 +1,15 @@
+.Toast {
+  position: fixed;
+  border-radius: 4px;
+  top: 40%;
+  left: calc(50% - 200px);
+  width: 350px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 25px;
+  background-color: white;
+  color: black;
+}
