@@ -5,15 +5,17 @@ import Sidebar from '../../components/UI/Sidebar/Sidebar'
 import Content from '../../components/UI/Content/Content'
 import Playbar from '../../components/UI/Playbar/Playbar'
 import './MusicPlayer.scss'
+import media from '../../media.json'
 
 export const StoreContext = createContext(null)
 
 const DEFAULT_PLAYLIST = 'home'
 
 const initialState = {
+  media,
   currentPlaylist: DEFAULT_PLAYLIST,
   playlists: {
-    home: new Set(),
+    home: new Set(media.ids),
     favourites: new Set()
   },
 }
@@ -36,8 +38,8 @@ const MusicPlayer = () => {
     <StoreContext.Provider value={{ state, dispatch }}>
       <div className="MusicPlayer">
         <Topbar></Topbar>
-        <Sidebar></Sidebar>
-        <Content></Content>
+        <Sidebar />
+        <Content />
         <Playbar></Playbar>
       </div>
     </StoreContext.Provider>
