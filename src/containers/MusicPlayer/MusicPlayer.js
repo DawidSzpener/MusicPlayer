@@ -16,7 +16,7 @@ const initialState = {
   currentPlaylist: DEFAULT_PLAYLIST,
   playlists: {
     home: new Set(media.ids),
-    favourites: new Set()
+    favorites: new Set()
   },
 }
 

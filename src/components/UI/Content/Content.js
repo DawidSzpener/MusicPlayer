@@ -1,12 +1,19 @@
 import React, { useContext } from 'react';
 
 import './Content.scss'
+import fullHeart from '../../../assets/images/fullheart.png'
+import emptyHeart from '../../../assets/images/emptyheart.png'
+
 import {StoreContext} from '../../../containers/MusicPlayer/MusicPlayer'
 
 const Content = () => {
   const { state } = useContext(StoreContext)
   const currentPlaylist = state.currentPlaylist
   const songIds = Array.from(state.playlists[currentPlaylist])
+
+  const favouriteHandler = () => {
+    console.log('Hihi')
+  }
 
   return (
     <div className="Content">
@@ -17,6 +24,7 @@ const Content = () => {
         <table className="Content__table">
           <thead className="Content__table__head">
             <tr>
+              <td />
               <td>Title</td>
               <td>Artist</td>
               <td>Length</td>
@@ -26,9 +34,20 @@ const Content = () => {
           <tbody>
             {songIds.map(id => {
               const { title, artist, length } = state.media[id]
+              const isFavorite = state.playlists.favorites.has(id)
 
               return (
                 <tr key={id} className="Content__table__tr">
+                  {
+                    isFavorite ?
+                      <td className="Content__table__td__heart">
+                        <img className="Content__table__td__heart__img" src={fullHeart} alt="heart" onClick={favouriteHandler}/>
+                      </td>
+                      :
+                      <td className="Content__table__td__heart">
+                        <img className="Content__table__td__heart__img" src={emptyHeart} alt="heart" onClick={favouriteHandler}/>
+                      </td>
+                  }
                   <td className="Content__table__td">{title}</td>
                   <td className="Content__table__td">{artist}</td>
                   <td className="Content__table__td" style={{paddingLeft: '23px'}}>{length}</td>
