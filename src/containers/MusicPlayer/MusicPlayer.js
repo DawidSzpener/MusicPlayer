@@ -26,6 +26,12 @@ const reducer = (state, action) => {
       return {...state, playlists: {...state.playlists, [action.playlist]: new Set()}}
     case('SET_PLAYLIST'):
       return {...state, currentPlaylist: action.playlist}
+    case('ADD_FAVORITE'):
+      state.playlists.favorites.add(action.songId)
+      return {...state}
+    case('REMOVE_FAVORITE'):
+      state.playlists.favorites.delete(action.songId)
+      return {...state}
     default:
       return null
   }

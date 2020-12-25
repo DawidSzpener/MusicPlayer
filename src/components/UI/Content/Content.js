@@ -7,12 +7,16 @@ import emptyHeart from '../../../assets/images/emptyheart.png'
 import {StoreContext} from '../../../containers/MusicPlayer/MusicPlayer'
 
 const Content = () => {
-  const { state } = useContext(StoreContext)
+  const { state, dispatch } = useContext(StoreContext)
   const currentPlaylist = state.currentPlaylist
   const songIds = Array.from(state.playlists[currentPlaylist])
 
-  const favouriteHandler = () => {
-    console.log('Hihi')
+  const addToFavorite = (id) => {
+    dispatch({ type: 'ADD_FAVORITE', songId: id })
+  }
+
+  const removeFromFavorite = (id) => {
+    dispatch({ type: 'REMOVE_FAVORITE', songId: id })
   }
 
   return (
@@ -41,11 +45,11 @@ const Content = () => {
                   {
                     isFavorite ?
                       <td className="Content__table__td__heart">
-                        <img className="Content__table__td__heart__img" src={fullHeart} alt="heart" onClick={favouriteHandler}/>
+                        <img className="Content__table__td__heart__img" src={fullHeart} alt="heart" onClick={() => removeFromFavorite(id)}/>
                       </td>
                       :
                       <td className="Content__table__td__heart">
-                        <img className="Content__table__td__heart__img" src={emptyHeart} alt="heart" onClick={favouriteHandler}/>
+                        <img className="Content__table__td__heart__img" src={emptyHeart} alt="heart" onClick={() => addToFavorite(id)}/>
                       </td>
                   }
                   <td className="Content__table__td">{title}</td>
