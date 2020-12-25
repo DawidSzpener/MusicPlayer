@@ -12,10 +12,10 @@ const Content = () => {
     <div className="Content">
       <div className="Content__title">{currentPlaylist}</div>
       {songIds.length <= 0 ? (
-        <p>Your playlist is empty</p>
+        <p className="Content__title">Your playlist is empty</p>
       ) : (
-        <table>
-          <thead>
+        <table className="Content__table">
+          <thead className="Content__table__head">
             <tr>
               <td>Title</td>
               <td>Artist</td>
@@ -28,10 +28,10 @@ const Content = () => {
               const { title, artist, length } = state.media[id]
 
               return (
-                <tr key={id}>
-                  <td>{title}</td>
-                  <td>{artist}</td>
-                  <td>{length}</td>
+                <tr key={id} className="Content__table__tr">
+                  <td className="Content__table__td">{title}</td>
+                  <td className="Content__table__td">{artist}</td>
+                  <td className="Content__table__td" style={{paddingLeft: '23px'}}>{length}</td>
                 </tr>
               )
             })}
