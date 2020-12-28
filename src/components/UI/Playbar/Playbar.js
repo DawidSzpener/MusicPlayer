@@ -23,9 +23,9 @@ const Playbar = () => {
       </div>
 
       <div className="Playbar__progressBar">
-        <span className="Playbar__progressBar_current">0:20</span>
+        <span className="Playbar__progressBar__current">0:20</span>
         <input className="Playbar__progressBar__input" type="range" name="progressBar" />
-        <span className="Playbar__progressBar_total">4:11</span>
+        <span className="Playbar__progressBar__total">4:11</span>
       </div>
 
       <span className="Playbar__repeat"></span>
