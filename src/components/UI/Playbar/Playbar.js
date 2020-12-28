@@ -1,20 +1,25 @@
 import React from 'react';
 
 import './Playbar.scss'
+import forward from '../../../assets/images/forward.png'
+import backward from '../../../assets/images/backward.png'
+import play from '../../../assets/images/play.png'
+import sound from '../../../assets/images/sound.png'
+
 
 const Playbar = () => {
   return (
     <div className="Playbar">
 
       <div className="Playbar__volume">
-        <span className="Playbar__volume__bar"><img src={null} alt="volume bar"/></span>
+        <span className="Playbar__volume__bar"><img src={sound} alt="volume bar" className="Playbar__volume__bar__img"/></span>
         <input type="range" name="volumeBar" className="Playbar__volume__bar_input"/>
       </div>
 
       <div className="Playbar__controls">
-        <img src={null} alt="backward button" className="Playbar__controls__backward"/>
-        <img src={null} alt="play button" className="Playbar__controls__play"/>
-        <img src={null} alt="forward button" className="Playbar__controls__forward"/>
+        <img src={backward} alt="backward button" className="Playbar__controls__backward"/>
+        <img src={play} alt="play button" className="Playbar__controls__play"/>
+        <img src={forward} alt="forward button" className="Playbar__controls__forward"/>
       </div>
 
       <div className="Playbar__progressBar">

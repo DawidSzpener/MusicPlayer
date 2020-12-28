@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   width: 200px;
-  height: calc(100% - 125px);
+  height: calc(100%);
 
   &__logo {
     height: 200px;
@@ -21,7 +21,7 @@
   }
   &__newplaylist {
     position: absolute;
-    bottom: 20px;
+    bottom: 50px;
     padding-left: 20px;
     text-transform: uppercase;;
     font-size: 1.5rem;

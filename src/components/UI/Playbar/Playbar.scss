@@ -2,7 +2,8 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 200px);
+  margin-left: 200px;
   height: 125px;
   z-index: 99;
   display: flex;
@@ -22,26 +23,25 @@
   }
 
   &__controls {
-    cursor: pointer;
-
-    &__play {
-      background: violet;
-      padding: 15px 18px;
-      border-radius: 100%;
-    }
     &__backward {
-      background: violet;
-      border-radius: 10px 0 0 10px;
-      padding-left: 15px;
-      padding-right: 10px;
-      margin-right: -5px;
+      width: 35px;
+      border-radius: 100%;
+      margin: 0 0 15px 0;
+      cursor: pointer;
+
+    }
+    &__play {
+      width: 60px;
+      border-radius: 100%;
+      cursor: pointer;
+
     }
     &__forward {
-      background: violet;
-      border-radius: 0 10px 10px 0;
-      padding-left: 10px;
-      padding-right: 15px;
-      margin-left: -5px;
+      width: 35px;
+      border-radius: 100%;
+      margin: 0 0 15px 0;
+      cursor: pointer;
+
     }
   }
 
@@ -49,15 +49,18 @@
     display: flex;
     align-content: center;
     overflow: hidden;
-    width: 25px;
+    width: 200px;
     transition: all 500ms ease;
 
     &:hover {
-      width: 90px;
     }
 
     &__bar {
-      padding: 10px;
+
+      &__img {
+        width: 35px;
+        height: 38px;
+      }
 
       &__input {
         padding: 0;
