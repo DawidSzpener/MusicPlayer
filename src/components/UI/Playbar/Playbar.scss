@@ -16,10 +16,6 @@
     justify-content: center;
     align-items: center;
     width: 300px;
-
-    &__input {
-      background: transparent;
-    }
   }
 
   &__controls {
@@ -60,21 +56,6 @@
       &__img {
         width: 35px;
         height: 38px;
-      }
-
-      &__input {
-        padding: 0;
-        margin: 0;
-        width: 50px;
-        background: transparent;
-
-        &::-moz-range-thumb {
-          height: 10px;
-          width: 3px;
-          background: violet;
-          border-radius: 4px;
-          cursor: pointer;
-        }
       }
     }
   }

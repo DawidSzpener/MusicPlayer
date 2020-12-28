@@ -5,6 +5,7 @@ import Sidebar from '../../components/UI/Sidebar/Sidebar'
 import Content from '../../components/UI/Content/Content'
 import Playbar from '../../components/UI/Playbar/Playbar'
 import './MusicPlayer.scss'
+import './input.scss'
 import media from '../../media.json'
 
 export const StoreContext = createContext(null)
