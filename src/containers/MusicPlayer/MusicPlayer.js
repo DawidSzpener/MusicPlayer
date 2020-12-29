@@ -45,26 +45,16 @@ const MusicPlayer = () => {
 
   const audio = useRef('audio_tag')
 
-  const toggle = () => {
-    if (audio.current.paused) {
-      audio.current.play()
-    } else {
-      audio.current.pause()
-    }
-  }
 
-  const setVolume = (n) => {
-    audio.current.volume = n
-  }
 
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
       <div className="MusicPlayer">
-        <audio ref={audio} type="audio/mpeg" src={song}/>
+        <audio ref={audio} type="audio/mpeg" src={song} preload='auto'/>
         <Topbar></Topbar>
         <Sidebar />
         <Content />
-        <Playbar toggle={toggle} setVolume={setVolume}/>
+        <Playbar audio={audio}/>
       </div>
     </StoreContext.Provider>
   )
