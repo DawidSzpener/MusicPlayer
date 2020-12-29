@@ -1,12 +1,14 @@
-import React, { useReducer, createContext } from 'react';
+import React, { useReducer, createContext, useRef } from 'react';
 
 import Topbar from '../../components/UI/Topbar/Topbar'
 import Sidebar from '../../components/UI/Sidebar/Sidebar'
 import Content from '../../components/UI/Content/Content'
 import Playbar from '../../components/UI/Playbar/Playbar'
+
 import './MusicPlayer.scss'
 import './input.scss'
 import media from '../../media.json'
+import song from '../../assets/dist/A New Orleans Crawfish Boil - Unicorn Heads.mp3'
 
 export const StoreContext = createContext(null)
 
@@ -41,13 +43,28 @@ const reducer = (state, action) => {
 const MusicPlayer = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const audio = useRef('audio_tag')
+
+  const toggle = () => {
+    if (audio.current.paused) {
+      audio.current.play()
+    } else {
+      audio.current.pause()
+    }
+  }
+
+  const setVolume = (n) => {
+    audio.current.volume = n
+  }
+
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
       <div className="MusicPlayer">
+        <audio ref={audio} type="audio/mpeg" src={song}/>
         <Topbar></Topbar>
         <Sidebar />
         <Content />
-        <Playbar />
+        <Playbar toggle={toggle} setVolume={setVolume}/>
       </div>
     </StoreContext.Provider>
   )
