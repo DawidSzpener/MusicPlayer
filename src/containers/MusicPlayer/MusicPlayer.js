@@ -45,8 +45,6 @@ const MusicPlayer = () => {
 
   const audio = useRef('audio_tag')
 
-
-
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
       <div className="MusicPlayer">
