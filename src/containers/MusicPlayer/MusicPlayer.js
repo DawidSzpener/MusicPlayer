@@ -48,7 +48,11 @@ const MusicPlayer = () => {
   return (
     <StoreContext.Provider value={{ state, dispatch }}>
       <div className="MusicPlayer">
-        <audio ref={audio} type="audio/mpeg" src={song} preload='auto'/>
+        <audio ref={audio}
+          type="audio/mpeg"
+          src={song} 
+          preload='auto'
+          />
         <Topbar></Topbar>
         <Sidebar />
         <Content />

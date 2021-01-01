@@ -11,7 +11,7 @@ const Playbar = (props) => {
   const [playing, setPlaying] = useState(false)
   const [stateVolume, setStateVolume] = useState(0.5)
   const [duration, setDuration] = useState(0)
-  const [current, setCurrent] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0)
 
   const toggle = () => {
     if (props.audio.current.paused) {
@@ -23,8 +23,8 @@ const Playbar = (props) => {
 
   const handleProgress = (e) => {
     let compute = (e.target.value * duration) / 100;
-    setCurrent(compute);
-    props.audio.current.current = compute
+    setCurrentTime(compute);
+    props.audio.current.currentTime = compute
   }
 
   useEffect(() => {
@@ -34,12 +34,18 @@ const Playbar = (props) => {
     setVolume(stateVolume)
   }, [stateVolume, props.audio])
 
+  useEffect(() => {
+    setDuration(props.audio.current.duration)
+  },[props.audio.current.duration, props.audio])
+
+  console.log(props.audio)
+
   const fmtMSS = (s) => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~(s) }
 
   return (
     <div className="Playbar">
       <audio
-        onTimeUpdate={(e) => setCurrent(e.target.currentTime)}
+        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
         onCanPlay={(e) => setDuration(e.target.duration)}
       />
       <div className="Playbar__volume">
@@ -54,10 +60,10 @@ const Playbar = (props) => {
       </div>
 
       <div className="Playbar__progressBar">
-        <span className="Playbar__progressBar__current">{fmtMSS(current)}</span>
+        <span className="Playbar__progressBar__current">{fmtMSS(currentTime)}</span>
         <input 
           onChange={handleProgress}
-          value={duration ? (current * 100) / duration : 0}
+          value={duration ? (currentTime * 100) / duration : 0}
           className="Playbar__progressBar__input"
           type="range"
           name="progressBar" />
